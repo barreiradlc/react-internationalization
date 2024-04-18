@@ -1,14 +1,15 @@
 import { Card, Image, Text, CardBody, CardFooter, Stack, Heading, Button, ButtonGroup, Divider } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next';
+import { ReadMoreModal } from './ReadMoreModal';
 
-interface BaseCardProps {
+export interface BaseCardProps {
   title: string
   content?: string
   img: string
 }
 
-function BaseCard({ title, content, img}: BaseCardProps) {
-  const { t } = useTranslation();
+function BaseCard(props: BaseCardProps) {
+  const { title, content, img } = props
 
   return (
     <Card
@@ -33,9 +34,11 @@ function BaseCard({ title, content, img}: BaseCardProps) {
         </CardBody>
 
         <CardFooter>
-          <Button variant='solid' colorScheme='blue'>
-            {t('Button label')}
-          </Button>
+          <ReadMoreModal 
+            img={img} 
+            title={title} 
+            content={content}  
+          />
         </CardFooter>
       </Stack>
     </Card>

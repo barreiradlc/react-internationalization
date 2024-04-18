@@ -2,9 +2,6 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from 'i18next-browser-languagedetector'
 
-// the translations
-// (tip move them in a JSON file and import them,
-// or even better, manage them separated from your code: https://react.i18next.com/guides/multiple-translation-files)
 const resources = {
   'en-US': { 
     translation: {
@@ -20,7 +17,8 @@ const resources = {
         title: "Rabbit",
         content: "A rabbit is a small mammal known for its long ears, fluffy tail, and powerful hind legs. Belonging to the family Leporidae, rabbits are herbivores and primarily feed on grasses, vegetables, and occasionally fruits. They are prolific breeders, with a short gestation period, and can produce large litters of offspring. Rabbits are found in various habitats worldwide, including forests, grasslands, deserts, and urban areas."
       },
-      "Button label": "Read more"
+      "Button label": "Read more",
+      "Button label close": "Fechar",
     } 
   },
   'pt-BR': { 
@@ -37,23 +35,20 @@ const resources = {
         title: "Lebre",
         content: "Uma lebre é um mamífero pertencente à família Leporidae, que inclui também os coelhos. As lebres são conhecidas por suas pernas longas, orelhas grandes e olhos grandes e protuberantes, que proporcionam uma visão excelente para detectar predadores. Elas são encontradas em várias partes do mundo, incluindo Europa, Ásia, África e América do Norte. As lebres geralmente habitam áreas abertas, como pradarias, pastagens e áreas de arbustos, e são herbívoras, alimentando-se principalmente de folhas, brotos e grama. São animais ágeis e velozes, capazes de atingir altas velocidades em corridas para escapar de predadores. As lebres também são conhecidas por seus comportamentos reprodutivos, como saltos altos e corridas em círculos durante a época de acasalamento."
       },
-      "Button label": "Leia mais"
+      "Button label": "Leia mais",
+      "Button label close": "Fechar"
     } 
   }
 };
 
 i18n
-  .use(LanguageDetector) // uses o detector to find the language of the browser
-  .use(initReactI18next) // passes i18n down to react-i18next
+  .use(LanguageDetector)
+  .use(initReactI18next) 
   .init({
     resources,
-    fallbackLng: 'pt-BR',     // fallbackLng é o idioma padrão caso o browser não consiga detectar sozinho
-    // lng: "en", // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
-    // you can use the i18n.changeLanguage function to change the language manually: https://www.i18next.com/overview/api#changelanguage
-    // if you're using a language detector, do not define the lng option
-
+    fallbackLng: 'pt-BR',   
     interpolation: {
-      escapeValue: false // react already safes from xss
+      escapeValue: false 
     }
   });
 

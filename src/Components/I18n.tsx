@@ -6,27 +6,18 @@ import { useTranslation } from 'react-i18next';
 
 function I18n(){
   const { i18n } = useTranslation();
-
   const language = i18n.language
 
-  console.log(language)
-
-  function handleChangeLanguage(language: string) {
-    i18n.changeLanguage(language, (err, _) => {
-      if (err) return console.log('something went wrong loading', err);
-    });
-  }
-
   function handleSetBR() {
-    handleChangeLanguage('pt-BR')
+    i18n.changeLanguage('pt-BR')
   }
   function handleSetEN() {
-    handleChangeLanguage('en-US')
+    i18n.changeLanguage('en-US')
   }
 
   return(
     <Box pos="fixed" top="0" right="0" padding="1rem"  >
-      <ButtonGroup isAttached variant='outline' spacing='6' colorScheme='blue' background="#fff" borderRadius={6}>
+      <ButtonGroup isAttached variant='outline' spacing='6' colorScheme='blue' background="#fff" >
         <Button variant={language === 'pt-BR' ? 'solid' : 'outline'} onClick={handleSetBR}>          
           <Avatar size='sm' src={ptFlag} showBorder />
         </Button>
