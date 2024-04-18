@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Flex } from "@chakra-ui/react";
+import { BaseCard } from "./Components/BaseCard";
+import { I18n } from "./Components/I18n";
+import { useTranslation } from 'react-i18next';
+import giraffeImage from './assets/giraffe.jpeg'
+import dogImage from './assets/dog.jpeg'
+import rabbitImage from './assets/rabbit.jpeg'
+
 
 function App() {
+  const { t } = useTranslation();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <>
+      <Flex align="space-between" justify="space-between" flexDirection="column" padding="2rem" gap={2}>  
+        <BaseCard
+          img={giraffeImage}
+          title={t('giraffe.title')}
+          content={t('giraffe.content')}
+          />
+        <BaseCard 
+          title={t('dog.title')}
+          content={t('dog.content')}
+          img={dogImage} 
+          />
+        <BaseCard 
+          title={t('rabbit.title')}
+          content={t('rabbit.content')}
+          img={rabbitImage} 
+        />
+      </Flex>
+      <I18n />
+    </>
   );
 }
 
