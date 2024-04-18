@@ -1,4 +1,4 @@
-import { Box, Text, Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from "@chakra-ui/react"
+import { Text, Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from "@chakra-ui/react"
 import { useRef } from "react"
 import { useTranslation } from "react-i18next";
 
@@ -14,21 +14,27 @@ function ReadMoreModal({ title, content, img }: ReadMoreModalProps) {
 
   return (
     <>
+
       <Button variant='solid' colorScheme='blue' onClick={onOpen}>
        {t('Button label')}
       </Button>
       <Modal finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>{title}</ModalHeader>
+        <ModalContent 
+          backgroundSize="cover"
+          backgroundImage={`url(${img})`}
+          backgroundPosition="center"
+          backgroundRepeat="no-repeat"
+          >
+          <ModalHeader background="#dededed6">{title}</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
-            <Text>
+          <ModalBody background="#dededed6">            
+            <Text >
               {content}
-            </Text>
+            </Text>          
           </ModalBody>
 
-          <ModalFooter>
+          <ModalFooter background="#dededed6">
             <Button colorScheme='blue' mr={3} onClick={onClose}>
               {t('Button label close')}
             </Button>

@@ -18,7 +18,7 @@ const resources = {
         content: "A rabbit is a small mammal known for its long ears, fluffy tail, and powerful hind legs. Belonging to the family Leporidae, rabbits are herbivores and primarily feed on grasses, vegetables, and occasionally fruits. They are prolific breeders, with a short gestation period, and can produce large litters of offspring. Rabbits are found in various habitats worldwide, including forests, grasslands, deserts, and urban areas."
       },
       "Button label": "Read more",
-      "Button label close": "Fechar",
+      "Button label close": "Close",
     } 
   },
   'pt-BR': { 
